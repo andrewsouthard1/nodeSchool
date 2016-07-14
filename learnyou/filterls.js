@@ -5,9 +5,11 @@ fs.readdir(process.argv[2], function callback(err, list){
 	if(err){
 		console.log("ERROR");
 	}else{
-		var ext = path.extname(list);
-		if(ext){
-			console.log(list);
+		var ext = path.extname(list[0]);
+		for(var i=0; i<list.length; i++){
+			if(path.extname(list[i]) == ext){
+				console.log(list[i])
+			}
 		}
 	}
-})
+});
